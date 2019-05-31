@@ -31,12 +31,16 @@ class App extends Component {
       {
         title: "Rank",
         dataIndex: "Rank",
-        key: "rank"
+        key: "Rank"
       },
       {
         title: "Name",
-        dataIndex: "name",
-        key: "name"
+        dataIndex: "Name",
+        key: "Name"
+        // sorter: (a, b) => {
+        //   return a.Name.length - b.Name.length;
+        // },
+        // sortDirections: ["ascend", "descend"]
       },
       {
         title: "Platform",
@@ -46,7 +50,11 @@ class App extends Component {
       {
         title: "Year",
         dataIndex: "Year",
-        key: "Year"
+        key: "Year",
+        sorter: (a, b) => {
+          return a.Year - b.Year;
+        },
+        sortDirections: ["ascend", "descend"]
       },
       {
         title: "Genre",
