@@ -1,26 +1,33 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import Papa from "papaparse";
+import { Table } from "antd";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const data = require("./data.csv");
+
+class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      data: []
+    };
+  }
+
+  componentDidMount() {
+    Papa.parse(data, {
+      header: true,
+      download: true,
+      skipEmptyLines: true,
+      complete: this.handleUpdate
+    });
+  }
+
+  handleUpdate = result => {
+    this.setState({ data: result.data });
+  };
+
+  render() {
+    return <div>Welcome to the Application</div>;
+  }
 }
 
 export default App;
