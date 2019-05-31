@@ -3,11 +3,13 @@ import ReactDOM from "react-dom";
 import { BrowserRouter, Route } from "react-router-dom";
 import "./index.css";
 import App from "./App";
+import IndividualGame from "./IndividualGame";
 import * as serviceWorker from "./serviceWorker";
 
 ReactDOM.render(
   <BrowserRouter>
-    <App />
+    <Route exact path="/" component={App} />
+    <Route path="/:id" component={IndividualGame} />
   </BrowserRouter>,
   document.getElementById("root")
 );

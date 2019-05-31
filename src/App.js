@@ -24,6 +24,7 @@ class App extends Component {
 
   handleUpdate = result => {
     console.log(result);
+    localStorage.setItem("games-csv", JSON.stringify(result.data));
     this.setState({ data: result.data });
   };
 
