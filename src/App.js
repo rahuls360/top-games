@@ -82,8 +82,6 @@ class App extends Component {
   render() {
     return (
       <>
-        <div>Welcome to the Application</div>
-
         <Table dataSource={this.state.data} columns={this.getColumns()} />
       </>
     );
