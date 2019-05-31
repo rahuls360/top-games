@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Papa from "papaparse";
+import { Link } from "react-router-dom";
 import { Table } from "antd";
 
 const data = require("./data.csv");
@@ -36,11 +37,14 @@ class App extends Component {
       {
         title: "Name",
         dataIndex: "Name",
-        key: "Name"
+        key: "Name",
         // sorter: (a, b) => {
         //   return a.Name.length - b.Name.length;
         // },
         // sortDirections: ["ascend", "descend"]
+        render: (text, record, index) => (
+          <Link to={`/${record.Rank}`}>{text}</Link>
+        )
       },
       {
         title: "Platform",
